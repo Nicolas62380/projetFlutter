@@ -1,3 +1,4 @@
 # projet_flutter
 
-Audrey
+Audrey Grout
+Nicolas Berquez
