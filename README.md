@@ -2,3 +2,4 @@
 
 Audrey Grout
 Nicolas Berquez
+Jérémy LAURENT
