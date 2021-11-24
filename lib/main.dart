@@ -18,8 +18,8 @@ class MyApp extends StatelessWidget {
       home: const Home(),
       routes: {
         '/home': (context) => const Home(),
-        '/detail': (context) => const Detail(),
-        '/listeAnime': (context) => const ListeAnime(),
+        '/detail_anime': (context) => const Detail(),
+        '/liste_anime': (context) => const ListeAnime(),
       },
     );
   }
