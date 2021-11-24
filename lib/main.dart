@@ -4,14 +4,14 @@ void main() {
   runApp(const MyApp());
 }
 
-class MonApplication extends StatelessWidget {
-  const MonApplication({Key? key}) : super(key: key);
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'SAH BG Demo',
+      title: ' sah bg Demo',
       theme: ThemeData(
         // This is the theme of your application.
         //
