@@ -15,15 +15,11 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("LPDIM FI"),
+        title: const Text("Anime"),
       ),
       body: Center(
         child: Column(
           children: [
-            Text(
-              "button cliked : $counter timeqs.",
-              style: const TextStyle(fontFamily: 'Lobster'),
-            ),
             versliste(),
             versdetail(),
           ],
