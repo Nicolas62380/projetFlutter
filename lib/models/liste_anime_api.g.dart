@@ -6,8 +6,8 @@ part of 'liste_anime_api.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Listeanimeapi _$ListeanimeapiFromJson(Map<String, dynamic> json) =>
-    Listeanimeapi(
+ListeAnimeApi _$ListeAnimeApiFromJson(Map<String, dynamic> json) =>
+    ListeAnimeApi(
       json['rank'] as int,
       json['title'] as String,
       json['image_url'] as String,
@@ -17,7 +17,7 @@ Listeanimeapi _$ListeanimeapiFromJson(Map<String, dynamic> json) =>
       DateTime.parse(json['end_date'] as String),
     );
 
-Map<String, dynamic> _$ListeanimeapiToJson(Listeanimeapi instance) =>
+Map<String, dynamic> _$ListeAnimeApiToJson(ListeAnimeApi instance) =>
     <String, dynamic>{
       'rank': instance.rank,
       'title': instance.title,

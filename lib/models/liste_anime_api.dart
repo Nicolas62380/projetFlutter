@@ -5,7 +5,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'liste_anime_api.g.dart';
 
 @JsonSerializable()
-class Listeanimeapi {
+class ListeAnimeApi {
   final int rank;
   final String title;
   final String image_url;
@@ -14,9 +14,9 @@ class Listeanimeapi {
   final DateTime start_date;
   final DateTime end_date;
 
-  Listeanimeapi(this.rank, this.title, this.image_url, this.type, this.episodes, this.start_date, this.end_date);
+  ListeAnimeApi(this.rank, this.title, this.image_url, this.type, this.episodes, this.start_date, this.end_date);
 
-  factory Listeanimeapi.fromJson(Map<String, dynamic> json) => _$ListeAnimeApiFromJson(json);
+  factory ListeAnimeApi.fromJson(Map<String, dynamic> json) => _$ListeAnimeApiFromJson(json);
 
   Map<String, dynamic> toJson() => _$ListeAnimeApiToJson(this);
 }
