@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/home': (context) => const Home(),
         '/detail': (context) => const Detail(),
+        '/listeAnime': (context) => const ListeAnime(),
       },
     );
   }
