@@ -7,14 +7,18 @@ class Detail extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-          child: Row(
+          child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Container(
             color: Colors.red,
             width: 200,
             height: 200,
           ),
-          const Text("Ceci est un test"),
+          const Text("Zone premier texte"),
+          const Text("Zone deuxieme texte"),
+          const Text("Zone troisième texte"),
+          const Text("Zone quatrième texte"),
         ],
       )),
     );
