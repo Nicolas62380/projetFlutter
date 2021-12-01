@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:projetflutter/models/anime_api.dart';
+import 'package:projetflutter/models/liste_top_api.dart';
 import 'package:projetflutter/providers/dio.dart';
 import 'package:projetflutter/providers/test_dio.provider.dart';
 import 'package:projetflutter/widgets/routes/home/home.dart';
@@ -48,6 +50,12 @@ class TestDio extends ConsumerWidget {
   }
 
   Widget _onData(data){
+
+
+    ListeTopApi a = data.value;
+    for(AnimeApi anime in a.top){
+      
+    }
     return Container(
       color: null != data.value ? Colors.green : Colors.red,
     );

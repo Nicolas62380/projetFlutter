@@ -2,16 +2,17 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:projetflutter/models/liste_anime_api.dart';
+import 'package:projetflutter/models/anime_api.dart';
+import 'package:projetflutter/models/liste_top_api.dart';
 import 'package:projetflutter/providers/dio.dart';
 
 //final testDioProvider = FutureProvider<?>((ref) async {
-final testDioProvider = FutureProvider<ListeAnimeApi?>((ref) async {
+final testDioProvider = FutureProvider<ListeTopApi?>((ref) async {
   final Dio dio = ref.read(dioProvider);
 
   try{
     final Response response = await dio.get('/top/anime/1');
-    return ListeAnimeApi.fromJson(response.data);
+    return ListeTopApi.fromJson(response.data);
   }catch(e){
     return Future.error(e);
   }
