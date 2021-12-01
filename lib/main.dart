@@ -22,11 +22,41 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: ' Demo',
-        home: ProviderScope(child: TestDio()),
+        home: const ProviderScope(child: MyStatefulWidget()),
         routes: {
           '/home': (context) => const Home(),
-          '/detail_anime': (context) => const Detail(),
+          /*'/detail_anime': (context) => const Detail(),*/
           '/liste_anime': (context) => const ListeAnime(),
         });
   }
 }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('BottomNavigationBar Sample'),
+      ),
+      body: Center(
+        child: _widgetOptions.elementAt(_selectedIndex),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shield_outlined),
+            label: 'Anime',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.menu_book_sharp),
+            label: 'Manga',
+          ),
+
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.amber[1800],
+        onTap: _onItemTapped,
+      ),
+    );
+  }
+}
+
