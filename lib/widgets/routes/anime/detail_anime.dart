@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:projetflutter/models/anime_api.dart';
 
 class Detail extends StatelessWidget {
-  const Detail({Key? key}) : super(key: key);
+  const Detail({Key? key, required this.anime}) : super(key: key);
+
+  final AnimeApi anime;
 
   @override
   Widget build(BuildContext context) {
@@ -13,15 +16,11 @@ class Detail extends StatelessWidget {
           child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Container(
-            color: Colors.red,
-            width: 200,
-            height: 200,
-          ),
-          const Text("Zone premier texte"),
-          const Text("Zone deuxieme texte"),
-          const Text("Zone troisième texte"),
-          const Text("Zone quatrième texte"),
+          Image.network(anime.image_url!),
+          Text(anime.title.toString()),
+          Text(anime.type.toString()),
+          Text(anime.rank.toString()),
+          Text(anime.score.toString())
         ],
       )),
     );
