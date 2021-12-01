@@ -5,6 +5,7 @@ import 'package:projetflutter/models/anime_api.dart';
 import 'package:projetflutter/models/liste_top_api.dart';
 import 'package:projetflutter/providers/dio.dart';
 import 'package:projetflutter/providers/test_dio.provider.dart';
+import 'package:projetflutter/widgets/anime.dart';
 import 'package:projetflutter/widgets/routes/home/home.dart';
 import 'package:projetflutter/widgets/routes/anime/detail_anime.dart';
 import 'package:projetflutter/widgets/routes/anime/liste_anime.dart';
@@ -19,16 +20,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return MaterialApp(
         title: ' Demo',
-        home: ProviderScope(
-          child: TestDio()),
-          routes: {
-        '/home': (context) => const Home(),
-        '/detail_anime': (context) => const Detail(),
-        '/liste_anime': (context) => const ListeAnime(),
-      }
-        );
+        home: ProviderScope(child: TestDio()),
+        routes: {
+          '/home': (context) => const Home(),
+          '/detail_anime': (context) => const Detail(),
+          '/liste_anime': (context) => const ListeAnime(),
+        });
   }
 }
 
@@ -38,8 +37,8 @@ class TestDio extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return ref
-      .watch(testDioProvider)
-      .map(data: _onData,error: _onError,loading: _onLoading);
+        .watch(testDioProvider)
+        .map(data: _onData, error: _onError, loading: _onLoading);
     /*final Dio dio = ref.read(dioProvider);
 
     final Future<Response> future = dio.get('/top/anime/1/airing');
@@ -49,25 +48,26 @@ class TestDio extends ConsumerWidget {
     return Container();*/
   }
 
-  Widget _onData(data){
-
-
+  Widget _onData(data) {
     ListeTopApi a = data.value;
-    for(AnimeApi anime in a.top){
-      
-    }
-    return Container(
-      color: null != data.value ? Colors.green : Colors.red,
+
+    return ListView.builder(
+      itemCount: a.top.length,
+      itemBuilder: (context, position) {
+        return AnimeRow(
+          anime: a.top[position],
+        );
+      },
     );
   }
 
-  Widget _onError(error){
+  Widget _onError(error) {
     return Container(
       color: Colors.red,
     );
   }
 
-  Widget _onLoading(loading){
+  Widget _onLoading(loading) {
     return Container(
       color: Colors.black12,
       child: const Center(

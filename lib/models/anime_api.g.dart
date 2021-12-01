@@ -12,12 +12,8 @@ AnimeApi _$AnimeApiFromJson(Map<String, dynamic> json) => AnimeApi(
       json['image_url'] as String?,
       json['type'] as String?,
       json['episodes'] as int?,
-      json['start_date'] == null
-          ? null
-          : DateTime.parse(json['start_date'] as String),
-      json['end_date'] == null
-          ? null
-          : DateTime.parse(json['end_date'] as String),
+      json['start_date'] as String?,
+      json['end_date'] as String?,
       (json['score'] as num?)?.toDouble(),
     );
 
@@ -27,7 +23,7 @@ Map<String, dynamic> _$AnimeApiToJson(AnimeApi instance) => <String, dynamic>{
       'image_url': instance.image_url,
       'type': instance.type,
       'episodes': instance.episodes,
-      'start_date': instance.start_date?.toIso8601String(),
-      'end_date': instance.end_date?.toIso8601String(),
+      'start_date': instance.start_date,
+      'end_date': instance.end_date,
       'score': instance.score,
     };
