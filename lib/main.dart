@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
     return  MaterialApp(
         title: ' Demo',
         home: ProviderScope(
-          child: Home()),
+          child: TestDio()),
           routes: {
         '/home': (context) => const Home(),
         '/detail_anime': (context) => const Detail(),
@@ -36,7 +36,7 @@ class TestDio extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return ref
-      .read(testDioProvider)
+      .watch(testDioProvider)
       .map(data: _onData,error: _onError,loading: _onLoading);
     /*final Dio dio = ref.read(dioProvider);
 

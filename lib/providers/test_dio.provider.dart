@@ -10,8 +10,8 @@ final testDioProvider = FutureProvider<ListeAnimeApi?>((ref) async {
   final Dio dio = ref.read(dioProvider);
 
   try{
-    final Response response = await dio.get('/top/anime/1/airing');
-    return ListeAnimeApi.fromJson(jsonDecode(response.data.toString()));
+    final Response response = await dio.get('/top/anime/1');
+    return ListeAnimeApi.fromJson(response.data);
   }catch(e){
     return Future.error(e);
   }
