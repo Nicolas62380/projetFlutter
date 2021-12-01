@@ -17,16 +17,16 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return  MaterialApp(
         title: ' Demo',
         home: ProviderScope(
-          child: /*const Home()*/ TestDio(),
-          /*routes: {
+          child: Home()),
+          routes: {
         '/home': (context) => const Home(),
         '/detail_anime': (context) => const Detail(),
         '/liste_anime': (context) => const ListeAnime(),
-      },*/
-        ));
+      }
+        );
   }
 }
 
@@ -49,7 +49,7 @@ class TestDio extends ConsumerWidget {
 
   Widget _onData(data){
     return Container(
-      color: Colors.blue,
+      color: null != data.value ? Colors.green : Colors.red,
     );
   }
 
@@ -61,7 +61,10 @@ class TestDio extends ConsumerWidget {
 
   Widget _onLoading(loading){
     return Container(
-      color: Colors.green,
+      color: Colors.black12,
+      child: const Center(
+        child: CircularProgressIndicator(),
+      ),
     );
   }
 }
