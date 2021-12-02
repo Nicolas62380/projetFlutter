@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:projetflutter/models/liste_top_api.dart';
-import 'package:projetflutter/providers/test_dio.provider.dart';
+import 'package:projetflutter/providers/top_anime_provider.dart';
 import 'package:projetflutter/widgets/anime.dart';
 
 class ListeAnime extends ConsumerWidget {
@@ -10,7 +10,7 @@ class ListeAnime extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return ref
-        .watch(testDioProvider)
+        .watch(topAnimeProvider)
         .map(data: _onData, error: _onError, loading: _onLoading);
     /*final Dio dio = ref.read(dioProvider);
 
