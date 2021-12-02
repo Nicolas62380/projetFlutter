@@ -9,7 +9,7 @@ part of 'liste_top_manga_api.dart';
 ListeTopMangaApi _$ListeTopMangaApiFromJson(Map<String, dynamic> json) =>
     ListeTopMangaApi(
       (json['top'] as List<dynamic>)
-          .map((e) => AnimeApi.fromJson(e as Map<String, dynamic>))
+          .map((e) => MangaApi.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
