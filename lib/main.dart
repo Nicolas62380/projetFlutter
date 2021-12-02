@@ -10,6 +10,7 @@ import 'package:projetflutter/widgets/navbar/navbar.dart';
 import 'package:projetflutter/widgets/routes/home/home.dart';
 import 'package:projetflutter/widgets/routes/anime/detail_anime.dart';
 import 'package:projetflutter/widgets/routes/anime/liste_anime.dart';
+import 'package:projetflutter/widgets/routes/manga/liste_manga.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
         home: const ProviderScope(child: MyStatefulWidget()),
         routes: {
           '/home': (context) => const Home(),
-          /*'/detail_anime': (context) => const Detail(),*/
+          '/detail_manga': (context) => const ListeManga(),
           '/liste_anime': (context) => const ListeAnime(),
         });
   }

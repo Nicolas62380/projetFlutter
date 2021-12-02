@@ -2,17 +2,18 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:projetflutter/models/liste_top_manga_api.dart';
 import 'package:projetflutter/models/manga_api.dart';
 import 'package:projetflutter/models/liste_top_api.dart';
 import 'package:projetflutter/providers/dio.dart';
 
-final topMangaProvider = FutureProvider<ListeTopApi?>((ref) async {
+final topMangaProvider = FutureProvider<ListeTopMangaApi?>((ref) async {
   final Dio dio = ref.read(dioProvider);
 
-  try{
+  try {
     final Response response = await dio.get('/top/manga/1');
-    return ListeTopApi.fromJson(response.data);
-  }catch(e){
+    return ListeTopMangaApi.fromJson(response.data);
+  } catch (e) {
     return Future.error(e);
   }
 });
