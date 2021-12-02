@@ -7,7 +7,7 @@ part 'liste_top_api.g.dart';
 
 @JsonSerializable()
 class ListeTopApi {
- final List<AnimeApi> top;
+  final List<AnimeApi> top;
   ListeTopApi(this.top);
 
   factory ListeTopApi.fromJson(Map<String, dynamic> json) => _$ListeTopApiFromJson(json);
