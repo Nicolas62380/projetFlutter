@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:projetflutter/models/manga_api.dart';
-import 'package:projetflutter/widgets/routes/anime/detail_anime.dart';
 import 'package:projetflutter/widgets/routes/anime/detail_manga.dart';
 
 class Manga extends StatelessWidget {
