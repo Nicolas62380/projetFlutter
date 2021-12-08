@@ -20,10 +20,10 @@ AnimeApi _$AnimeApiFromJson(Map<String, dynamic> json) => AnimeApi(
 Map<String, dynamic> _$AnimeApiToJson(AnimeApi instance) => <String, dynamic>{
       'rank': instance.rank,
       'title': instance.title,
-      'image_url': instance.image_url,
+      'image_url': instance.imageUrl,
       'type': instance.type,
       'episodes': instance.episodes,
-      'start_date': instance.start_date,
-      'end_date': instance.end_date,
+      'start_date': instance.startDate,
+      'end_date': instance.endDate,
       'score': instance.score,
     };

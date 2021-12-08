@@ -18,7 +18,7 @@ class DetailAnime extends StatelessWidget {
           child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Image.network(args.anime.image_url!),
+          Image.network(args.anime.imageUrl!),
           Text("Titre de l'anime : " + args.anime.title.toString()),
           Text("Type de l'anime : " + args.anime.type.toString()),
           Text("Rang de l'anime : " + args.anime.rank.toString()),
@@ -26,11 +26,11 @@ class DetailAnime extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("Début : " + args.anime.start_date.toString()),
+              Text("Début : " + args.anime.startDate.toString()),
               const SizedBox(
                 width: 20,
               ),
-              Text("Fin : " + args.anime.end_date.toString()),
+              Text("Fin : " + args.anime.endDate.toString()),
             ],
           ),
         ],

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:projetflutter/widgets/manga.dart';
 import 'package:projetflutter/widgets/routes/anime/detail_anime.dart';
 import 'package:projetflutter/widgets/routes/anime/detail_manga.dart';
 import 'package:projetflutter/widgets/routes/home/home.dart';

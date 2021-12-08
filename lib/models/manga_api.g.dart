@@ -20,10 +20,10 @@ MangaApi _$MangaApiFromJson(Map<String, dynamic> json) => MangaApi(
 Map<String, dynamic> _$MangaApiToJson(MangaApi instance) => <String, dynamic>{
       'rank': instance.rank,
       'title': instance.title,
-      'image_url': instance.image_url,
+      'image_url': instance.imageUrl,
       'type': instance.type,
       'volumes': instance.volumes,
-      'start_date': instance.start_date,
-      'end_date': instance.end_date,
+      'start_date': instance.startDate,
+      'end_date': instance.endDate,
       'score': instance.score,
     };
