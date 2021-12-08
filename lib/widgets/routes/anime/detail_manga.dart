@@ -19,10 +19,10 @@ class DetailManga extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Image.network(args.manga.image_url!),
-          Text(args.manga.title.toString()),
-          Text(args.manga.type.toString()),
-          Text(args.manga.rank.toString()),
-          Text(args.manga.score.toString())
+          Text("Titre du manga : "+ args.manga.title.toString()),
+          Text("Type de manga : " + args.manga.type.toString()),
+          Text("Rang de Manga : " + args.manga.rank.toString()),
+          Text("Score de l'anime : "+ args.manga.score.toString())
         ],
       )),
     );
