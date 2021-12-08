@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projetflutter/models/manga_api.dart';
+import 'package:projetflutter/widgets/routes/anime/detail_anime.dart';
+import 'package:projetflutter/widgets/routes/anime/detail_manga.dart';
 
 class Manga extends StatelessWidget {
   const Manga({Key? key, required this.manga}) : super(key: key);
@@ -35,52 +37,10 @@ class Manga extends StatelessWidget {
       onTap: () { 
         Navigator.pushNamed(
         context,
-        ExtractArgumentsScreen.routeName,
-        arguments: ScreenArguments(
-          manga,
-        ),
+        DetailManga.routeName,
+        arguments: DetailMangaArgs(manga),
         );
       },
     );
   }
-}
-
-class ScreenArguments {
-  final MangaApi manga;
-
-  ScreenArguments(this.manga);
-}
-
-class ExtractArgumentsScreen extends StatelessWidget {
-  const ExtractArgumentsScreen({Key? key}) : super(key: key);
-
-  static const routeName = '/detail_manga';
-
-  @override
-  Widget build(BuildContext context) {
-    // Extract the arguments from the current ModalRoute
-    // settings and cast them as ScreenArguments.
-    final args = ModalRoute.of(context)!.settings.arguments as ScreenArguments;
-
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Détail du manga :"),
-      ),
-      body: Center(
-        child: Row(
-          children: [
-            Text("Rank : " + args.manga.rank.toString()),
-            Text("Image : "),
-            Image.network(args.manga.image_url!),
-            Text("Title : " + args.manga.title.toString()),
-            Text("Type : " + args.manga.type.toString()),
-            Text("Volumes : " + args.manga.volumes.toString()),
-            Text("Date de début : " + args.manga.start_date.toString()),
-            Text("Date de fin : " + args.manga.end_date.toString()),
-            ],
-        )
-        
-      ),
-    );
-  } 
 }
