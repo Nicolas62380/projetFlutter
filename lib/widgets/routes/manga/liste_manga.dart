@@ -12,7 +12,8 @@ class ListeManga extends ConsumerWidget {
     return ref
         .watch(topMangaProvider)
         .map(data: _onData, error: _onError, loading: _onLoading);
-    /*final Dio dio = ref.read(dioProvider);
+   
+   /*final Dio dio = ref.read(dioProvider);
 
     final Future<Response> future = dio.get('/top/anime/1/airing');
     future.then((response){
