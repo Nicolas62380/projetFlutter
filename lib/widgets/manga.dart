@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projetflutter/models/manga_api.dart';
-import 'package:projetflutter/widgets/routes/anime/detail_manga.dart';
+import 'package:projetflutter/widgets/routes/manga/detail_manga.dart';
 
 class Manga extends StatelessWidget {
   const Manga({Key? key, required this.manga}) : super(key: key);
