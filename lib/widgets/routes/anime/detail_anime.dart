@@ -17,11 +17,21 @@ class Detail extends StatelessWidget {
           child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Image.network(args.anime2.image_url!),
-          Text(args.anime2.title.toString()),
-          Text(args.anime2.type.toString()),
-          Text(args.anime2.rank.toString()),
-          Text(args.anime2.score.toString())
+          Image.network(args.anime.image_url!),
+          Text("Titre de l'anime : " + args.anime.title.toString()),
+          Text("Type de l'anime : " + args.anime.type.toString()),
+          Text("Rang de l'anime : " + args.anime.rank.toString()),
+          Text("Score de l'anime : " + args.anime.score.toString()),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text("Début : " + args.anime.start_date.toString()),
+              const SizedBox(
+                width: 20,
+              ),
+              Text("Fin : " + args.anime.end_date.toString()),
+            ],
+          ),
         ],
       )),
     );
@@ -29,7 +39,7 @@ class Detail extends StatelessWidget {
 }
 
 class DetailAnimeArgs {
-  final AnimeApi anime2;
+  final AnimeApi anime;
 
-  DetailAnimeArgs(this.anime2);
+  DetailAnimeArgs(this.anime);
 }
