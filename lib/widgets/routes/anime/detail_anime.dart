@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:projetflutter/models/anime_api.dart';
 
-class Detail extends StatelessWidget {
-  const Detail({Key? key}) : super(key: key);
+class DetailAnime extends StatelessWidget {
+  const DetailAnime({Key? key}) : super(key: key);
 
   static const routeName = "./detail_anime";
 

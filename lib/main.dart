@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:projetflutter/widgets/manga.dart';
-<<<<<<< HEAD
-
-=======
->>>>>>> a62e9097e5982eaabe829dab2828499e3c4af396
 
 import 'package:projetflutter/widgets/navbar/navbar.dart';
 import 'package:projetflutter/widgets/routes/anime/detail_anime.dart';
@@ -31,7 +27,7 @@ class MyApp extends StatelessWidget {
           '/detail_manga': (context) => const ListeManga(),
           '/liste_anime': (context) => const ListeAnime(),
           DetailManga.routeName: (context) => const DetailManga(),
-          Detail.routeName: (context) => const Detail(),
+          DetailAnime.routeName: (context) => const DetailAnime(),
         });
   }
 }
