@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:projetflutter/models/anime_api.dart';
 
 class Detail extends StatelessWidget {
-  const Detail({Key? key, required this.anime}) : super(key: key);
+  const Detail({Key? key}) : super(key: key);
 
-  final AnimeApi anime;
+  static const routeName = "./detail_anime";
 
   @override
   Widget build(BuildContext context) {
+    final args = ModalRoute.of(context)!.settings.arguments as DetailAnimeArgs;
     return Scaffold(
       appBar: AppBar(
         title: const Text("Detail des Animes"),
@@ -16,13 +17,19 @@ class Detail extends StatelessWidget {
           child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Image.network(anime.image_url!),
-          Text(anime.title.toString()),
-          Text(anime.type.toString()),
-          Text(anime.rank.toString()),
-          Text(anime.score.toString())
+          Image.network(args.anime2.image_url!),
+          Text(args.anime2.title.toString()),
+          Text(args.anime2.type.toString()),
+          Text(args.anime2.rank.toString()),
+          Text(args.anime2.score.toString())
         ],
       )),
     );
   }
+}
+
+class DetailAnimeArgs {
+  final AnimeApi anime2;
+
+  DetailAnimeArgs(this.anime2);
 }
