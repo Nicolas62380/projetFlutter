@@ -12,13 +12,6 @@ class ListeAnime extends ConsumerWidget {
     return ref
         .watch(topAnimeProvider)
         .map(data: _onData, error: _onError, loading: _onLoading);
-    /*final Dio dio = ref.read(dioProvider);
-
-    final Future<Response> future = dio.get('/top/anime/1/airing');
-    future.then((response){
-
-    });
-    return Container();*/
   }
 
   Widget _onData(data) {
