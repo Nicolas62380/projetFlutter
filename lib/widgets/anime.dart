@@ -10,7 +10,13 @@ class AnimeRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (Navigator.pushNamed(context, Detail.routeName, arguments: DetailAnimeArgs(anime2))),
+      onTap: () {
+        Navigator.pushNamed(
+          context,
+          Detail.routeName,
+          arguments: DetailAnimeArgs(anime),
+        );
+      },
       child: Container(
           margin: const EdgeInsets.only(left: 20, top: 30, right: 20),
           decoration: BoxDecoration(
@@ -38,7 +44,7 @@ class AnimeRow extends StatelessWidget {
                         height: 10,
                       ),
                       Text(
-                        ("Rang : " + anime.rank.toString(),
+                        ("Rang : " + anime.rank.toString()),
                         maxLines: 2,
                         softWrap: true,
                       ),
