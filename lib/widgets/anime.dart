@@ -29,7 +29,7 @@ class AnimeRow extends StatelessWidget {
               const SizedBox(
                 width: 3,
               ),
-              Image.network(anime.image_url!),
+              Image.network(anime.imageUrl!),
               const SizedBox(width: 32),
               Expanded(
                 child: Column(

@@ -7,15 +7,18 @@ part 'anime_api.g.dart';
 class AnimeApi {
   final int? rank; //faire une classe avec UNE variable tableau pour les TOP
   final String? title;
-  final String? image_url;
+  @JsonKey(name: "image_url")
+  final String? imageUrl;
   final String? type;
   final int? episodes;
-  final String? start_date;
-  final String? end_date;
+  @JsonKey(name: "start_date")
+  final String? startDate;
+  @JsonKey(name: "end_date")
+  final String? endDate;
   final double? score;
 
-  AnimeApi(this.rank, this.title, this.image_url, this.type, this.episodes,
-      this.start_date, this.end_date, this.score);
+  AnimeApi(this.rank, this.title, this.imageUrl, this.type, this.episodes,
+      this.startDate, this.endDate, this.score);
 
   factory AnimeApi.fromJson(Map<String, dynamic> json) =>
       _$AnimeApiFromJson(json);

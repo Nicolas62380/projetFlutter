@@ -11,34 +11,34 @@ class Manga extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      child:Container(
-        margin: const EdgeInsets.only(left: 20, top: 30),
-        decoration: BoxDecoration(
-            border: Border.all(color: Colors.blueAccent, width: 5),
-            borderRadius: const BorderRadius.all(Radius.circular(
-              10,
-            ))),
-        child: Row(
-          children: [
-            const SizedBox(
-              width: 3,
-            ),
-            Image.network(manga.image_url!),
-            const SizedBox(width: 32),
-            Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              Text("Nom :  " + manga.title.toString()),
+      child: Container(
+          margin: const EdgeInsets.only(left: 20, top: 30),
+          decoration: BoxDecoration(
+              border: Border.all(color: Colors.blueAccent, width: 5),
+              borderRadius: const BorderRadius.all(Radius.circular(
+                10,
+              ))),
+          child: Row(
+            children: [
               const SizedBox(
-                height: 10,
+                width: 3,
               ),
-              Text("Score : " + manga.score.toString()),
-            ])
-          ],
-        )),
-      onTap: () { 
+              Image.network(manga.imageUrl!),
+              const SizedBox(width: 32),
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                Text("Nom :  " + manga.title.toString()),
+                const SizedBox(
+                  height: 10,
+                ),
+                Text("Score : " + manga.score.toString()),
+              ])
+            ],
+          )),
+      onTap: () {
         Navigator.pushNamed(
-        context,
-        DetailManga.routeName,
-        arguments: DetailMangaArgs(manga),
+          context,
+          DetailManga.routeName,
+          arguments: DetailMangaArgs(manga),
         );
       },
     );

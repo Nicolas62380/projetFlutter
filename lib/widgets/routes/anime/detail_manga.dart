@@ -18,7 +18,7 @@ class DetailManga extends StatelessWidget {
           child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Image.network(args.manga.image_url!),
+          Image.network(args.manga.imageUrl!),
           Text(args.manga.title.toString()),
           Text(args.manga.type.toString()),
           Text(args.manga.rank.toString()),
