@@ -3,15 +3,15 @@ import 'package:projetflutter/widgets/routes/manga/liste_manga.dart';
 
 import '../routes/anime/liste_anime.dart';
 
-class MyStatefulWidget extends StatefulWidget {
-  const MyStatefulWidget({Key? key}) : super(key: key);
+class navbar extends StatefulWidget {
+  const navbar({Key? key}) : super(key: key);
 
   @override
-  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
+  State<navbar> createState() => _navbar();
 }
 
 /// This is the private State class that goes with MyStatefulWidget.
-class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+class _navbar extends State<navbar> {
   int _selectedIndex = 0;
 
   static const List<Widget> _widgetOptions = <Widget>[
@@ -49,3 +49,5 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     );
   }
 }
+
+
