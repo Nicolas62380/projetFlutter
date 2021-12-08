@@ -37,8 +37,7 @@ class Manga extends StatelessWidget {
         context,
         ExtractArgumentsScreen.routeName,
         arguments: ScreenArguments(
-          'Extract Arguments Screen',
-          'This message is extracted in the build method.',
+          manga,
         ),
         );
       },
@@ -47,10 +46,9 @@ class Manga extends StatelessWidget {
 }
 
 class ScreenArguments {
-  String title = "TEST";
-  String message = "MESSAGE";
+  final MangaApi manga;
 
-  ScreenArguments(this.title, this.message);
+  ScreenArguments(this.manga);
 }
 
 class ExtractArgumentsScreen extends StatelessWidget {
@@ -69,7 +67,19 @@ class ExtractArgumentsScreen extends StatelessWidget {
         title: Text("Détail du manga :"),
       ),
       body: Center(
-        child: Text(args.message),
+        child: Row(
+          children: [
+            Text("Rank : " + args.manga.rank.toString()),
+            Text("Image : "),
+            Image.network(args.manga.image_url!),
+            Text("Title : " + args.manga.title.toString()),
+            Text("Type : " + args.manga.type.toString()),
+            Text("Volumes : " + args.manga.volumes.toString()),
+            Text("Date de début : " + args.manga.start_date.toString()),
+            Text("Date de fin : " + args.manga.end_date.toString()),
+            ],
+        )
+        
       ),
     );
   } 
