@@ -11,7 +11,8 @@ class DetailManga extends StatelessWidget {
     final args = ModalRoute.of(context)!.settings.arguments as DetailMangaArgs;
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Detail des Mangas"),
+        title: Text(args.manga.title.toString()),
+        centerTitle: true,
       ),
       body: Center(
           child: Column(

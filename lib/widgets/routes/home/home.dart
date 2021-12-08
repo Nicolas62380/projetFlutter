@@ -30,6 +30,7 @@ int _selectedIndex = 0;
     return Scaffold(
       appBar: AppBar(
         title:  Text(_selectedIndex == 0 ? "Anime" : "Manga"),
+        centerTitle: true,
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),

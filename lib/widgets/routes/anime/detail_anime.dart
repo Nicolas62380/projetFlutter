@@ -11,7 +11,8 @@ class DetailAnime extends StatelessWidget {
     final args = ModalRoute.of(context)!.settings.arguments as DetailAnimeArgs;
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Detail des Animes"),
+        title: Text(args.anime.title.toString()),
+        centerTitle: true,
       ),
       body: Center(
           child: Column(
