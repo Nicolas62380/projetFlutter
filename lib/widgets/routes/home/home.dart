@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:projetflutter/widgets/navbar/bottom_navigation_bar.dart';
+
+import 'package:projetflutter/widgets/routes/anime/liste_anime.dart';
+import 'package:projetflutter/widgets/routes/manga/liste_manga.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -8,54 +12,33 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  int counter = 0;
+  
 
+int _selectedIndex = 0;
+  static const List<Widget> _widgetOptions = <Widget>[
+    ListeAnime(),
+    ListeManga(),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Anime"),
+        title:  Text(_selectedIndex == 0 ? "Anime" : "Manga"),
       ),
       body: Center(
-        child: Column(
-          children: const [
-            Versliste(),
-            Versdetail(),
-          ],
-        ),
+        child: _widgetOptions.elementAt(_selectedIndex),
       ),
-    );
-  }
-}
-
-class Versliste extends StatelessWidget {
-  const Versliste({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.pushNamed(context, "/liste_anime");
-      },
-      child: const Text("LISTE"),
-    );
-  }
-}
-
-class Versdetail extends StatelessWidget {
-  const Versdetail({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.pushNamed(context, "/detail_anime");
-      },
-      child: const Text("Detail"),
+      bottomNavigationBar: CustomBottomNavigation(
+        selectedIndex: _selectedIndex,
+        onTap: _onItemTapped,
+      ),
+      
     );
   }
 }

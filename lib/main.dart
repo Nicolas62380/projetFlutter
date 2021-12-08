@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:projetflutter/widgets/manga.dart';
-import 'package:projetflutter/widgets/navbar/navbar.dart';
 import 'package:projetflutter/widgets/routes/anime/detail_anime.dart';
 import 'package:projetflutter/widgets/routes/anime/detail_manga.dart';
 import 'package:projetflutter/widgets/routes/home/home.dart';
@@ -20,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: ' Demo',
-        home: const ProviderScope(child: navbar()),
+        home: const ProviderScope(child: Home()),
         routes: {
           '/home': (context) => const Home(),
           '/detail_manga': (context) => const ListeManga(),
