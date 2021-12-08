@@ -13,7 +13,7 @@ class AnimeRow extends StatelessWidget {
       onTap: () {
         Navigator.pushNamed(
           context,
-          Detail.routeName,
+          DetailAnime.routeName,
           arguments: DetailAnimeArgs(anime),
         );
       },

@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
           '/detail_manga': (context) => const ListeManga(),
           '/liste_anime': (context) => const ListeAnime(),
           DetailManga.routeName: (context) => const DetailManga(),
-          Detail.routeName: (context) => const Detail(),
+          DetailAnime.routeName: (context) => const DetailAnime(),
         });
   }
 }
