@@ -1,8 +1,5 @@
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:projetflutter/models/anime_api.dart';
 import 'package:projetflutter/models/liste_top_api.dart';
 import 'package:projetflutter/providers/dio.dart';
 
@@ -16,12 +13,6 @@ final topAnimeProvider = FutureProvider<ListeTopApi?>((ref) async {
   } catch (e) {
     return Future.error(e);
   }
-
-  /*return dio
-    .get('/top/anime/1/airing')
-    .then((value)=>value)
-    .onError((error, stackTrace)=>Future.error(error!));*/
-  //return Example.fromJson(jsonDecode(response.data.toString()));
 });
 
 //async permet de ne pas attendre que la fonction aie terminé son travail (tourne en fond)

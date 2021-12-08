@@ -1,5 +1,4 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:projetflutter/models/anime_api.dart';
 import 'package:projetflutter/models/manga_api.dart';
 
 

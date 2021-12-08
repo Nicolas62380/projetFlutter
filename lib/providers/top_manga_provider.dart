@@ -1,10 +1,6 @@
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:projetflutter/models/liste_top_manga_api.dart';
-import 'package:projetflutter/models/manga_api.dart';
-import 'package:projetflutter/models/liste_top_api.dart';
 import 'package:projetflutter/providers/dio.dart';
 
 final topMangaProvider = FutureProvider<ListeTopMangaApi?>((ref) async {

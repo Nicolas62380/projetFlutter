@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -19,19 +18,18 @@ class _HomeState extends State<Home> {
       ),
       body: Center(
         child: Column(
-          children: [
-            versliste(),
-            versdetail(),
+          children: const [
+            Versliste(),
+            Versdetail(),
           ],
         ),
       ),
-
     );
   }
 }
 
-class versliste extends StatelessWidget {
-  const versliste({
+class Versliste extends StatelessWidget {
+  const Versliste({
     Key? key,
   }) : super(key: key);
 
@@ -41,12 +39,13 @@ class versliste extends StatelessWidget {
       onTap: () {
         Navigator.pushNamed(context, "/liste_anime");
       },
-       child: const Text("LISTE"),
-       );
+      child: const Text("LISTE"),
+    );
   }
 }
-class versdetail extends StatelessWidget {
-  const versdetail({
+
+class Versdetail extends StatelessWidget {
+  const Versdetail({
     Key? key,
   }) : super(key: key);
 
@@ -56,7 +55,7 @@ class versdetail extends StatelessWidget {
       onTap: () {
         Navigator.pushNamed(context, "/detail_anime");
       },
-       child: const Text("Detail"),
-       );
+      child: const Text("Detail"),
+    );
   }
 }
