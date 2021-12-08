@@ -8,7 +8,8 @@ class Manga extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return GestureDetector(
+      child:Container(
         margin: const EdgeInsets.only(left: 20, top: 30),
         decoration: BoxDecoration(
             border: Border.all(color: Colors.blueAccent, width: 5),
@@ -30,6 +31,46 @@ class Manga extends StatelessWidget {
               Text("Score : " + manga.score.toString()),
             ])
           ],
-        ));
+        )),
+      onTap: () { 
+        Navigator.pushNamed(
+        context,
+        ExtractArgumentsScreen.routeName,
+        arguments: ScreenArguments(
+          'Extract Arguments Screen',
+          'This message is extracted in the build method.',
+        ),
+        );
+      },
+    );
   }
+}
+
+class ScreenArguments {
+  String title = "TEST";
+  String message = "MESSAGE";
+
+  ScreenArguments(this.title, this.message);
+}
+
+class ExtractArgumentsScreen extends StatelessWidget {
+  const ExtractArgumentsScreen({Key? key}) : super(key: key);
+
+  static const routeName = '/detail_manga';
+
+  @override
+  Widget build(BuildContext context) {
+    // Extract the arguments from the current ModalRoute
+    // settings and cast them as ScreenArguments.
+    final args = ModalRoute.of(context)!.settings.arguments as ScreenArguments;
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Détail du manga :"),
+      ),
+      body: Center(
+        child: Text(args.message),
+      ),
+    );
+  } 
 }
