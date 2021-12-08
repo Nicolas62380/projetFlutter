@@ -3,7 +3,7 @@ import 'package:projetflutter/models/anime_api.dart';
 
 class Detail extends StatelessWidget {
   const Detail({Key? key, required this.anime}) : super(key: key);
-
+  static const routeName = "./detail_anime";
   final AnimeApi anime;
 
   @override
@@ -25,4 +25,10 @@ class Detail extends StatelessWidget {
       )),
     );
   }
+}
+
+class DetailAnimeArgs {
+  final AnimeApi anime2;
+
+  DetailAnimeArgs(this.anime2);
 }
