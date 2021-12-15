@@ -80,12 +80,14 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  fonts:
-    - family: OtakuRant
-      fonts:
-        - asset: fonts/OtakuRant.ttf
-        - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
+fonts:
+  - family: OtakuRant
+    fonts:
+      - asset: fonts/OtakuRant.ttf
+      - asset: fonts/OtakuRantBold.ttf
+        style: bold
+      - asset: fonts/OtakuRantItalBold.ttf
+        style: italic bold
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
