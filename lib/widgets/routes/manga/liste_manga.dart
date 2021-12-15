@@ -24,15 +24,7 @@ class ListeManga extends ConsumerWidget {
 
   Widget _onData(data) {
     ListeTopMangaApi a = data.value;
-
-    return ListView.builder(
-      itemCount: a.top.length,
-      itemBuilder: (context, position) {
-        return Manga(
-          manga: a.top[position],
-        );
-      },
-    );
+    return _Liste(item:a);
   }
 
   Widget _onError(error) {
@@ -47,6 +39,74 @@ class ListeManga extends ConsumerWidget {
       child: const Center(
         child: CircularProgressIndicator(),
       ),
+    );
+  }
+}
+
+class _Liste extends StatefulWidget {
+  const _Liste({ Key? key, required this.item }) : super(key: key);
+
+  final ListeTopMangaApi item;
+
+  @override
+  __ListeState createState() => __ListeState();
+}
+
+class __ListeState extends State<_Liste> {
+
+  ScrollController? _scrollController;
+bool _showBackToTopButton = false;
+ @override
+  void initState() {
+    super.initState();
+    _scrollController = ScrollController()
+      ..addListener(() {
+        setState(() {
+          if (_scrollController!.offset >= 400) {
+            _showBackToTopButton = true; // show the back-to-top button
+          } else {
+            _showBackToTopButton = false; // hide the back-to-top button
+          }
+        });
+      });
+  }
+
+  @override
+  void dispose() {
+    _scrollController!.dispose(); // dispose the controller
+    super.dispose();
+  }
+
+  // This function is triggered when the user presses the back-to-top button
+  void _scrollToTop() {
+    _scrollController!.animateTo(0,
+        duration: Duration(seconds: 1), curve: Curves.linear);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: 
+        [ListView.builder(
+          controller: _scrollController,
+          itemCount:widget. item.top.length,
+          itemBuilder: (context, position) {
+            return Manga(
+              manga: widget.item.top[position],
+            );
+          },
+        ),
+
+        _showBackToTopButton == false
+          ? SizedBox()
+          : Align(
+            alignment: Alignment.bottomRight,
+            child: FloatingActionButton(
+                onPressed: _scrollToTop,
+                child: Icon(Icons.arrow_upward),
+              ),
+          )
+      ],
     );
   }
 }

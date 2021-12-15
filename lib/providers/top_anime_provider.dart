@@ -6,7 +6,7 @@ import 'package:projetflutter/providers/dio.dart';
 //final testDioProvider = FutureProvider<?>((ref) async {
 final topAnimeProvider = FutureProvider<ListeTopApi?>((ref) async {
   final Dio dio = ref.read(dioProvider);
-
+  
   try {
     final Response response = await dio.get('/top/anime/1');
     return ListeTopApi.fromJson(response.data);

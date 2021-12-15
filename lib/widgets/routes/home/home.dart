@@ -29,11 +29,9 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading:Image.asset(
-            'assets/icon/icon.png',
-            fit: BoxFit.contain,
-            height: 32,
-          ),
+        leading: Image.asset(
+          'assets/icon/icon.png',
+        ),
         title: Text(_selectedIndex == 0 ? "Anime" : "Manga"),
         centerTitle: true,
         ListeDeroulante(), 
