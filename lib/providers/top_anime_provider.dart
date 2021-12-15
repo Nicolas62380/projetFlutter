@@ -7,9 +7,9 @@ import 'package:projetflutter/providers/home_state.dart';
 //final testDioProvider = FutureProvider<?>((ref) async {
 final topAnimeProvider = FutureProvider<ListeTopApi?>((ref) async {
   final Dio dio = ref.read(dioProvider);
-  final page = ref.read(homeStateProvider).pageAnime;
+  final pageAnime = ref.read(homeStateProvider).pageAnime;
   try {
-    final Response response = await dio.get('/top/anime/$page');
+    final Response response = await dio.get('/top/anime/$pageAnime');
     return ListeTopApi.fromJson(response.data);
   } catch (e) {
     return Future.error(e);

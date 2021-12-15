@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:projetflutter/providers/home_state.dart';
 import 'package:projetflutter/providers/top_anime_provider.dart';
+import 'package:projetflutter/providers/top_manga_provider.dart';
 
 class ListeDeroulante extends ConsumerWidget {
   ListeDeroulante({Key? key}) : super(key: key);
@@ -14,16 +15,29 @@ class ListeDeroulante extends ConsumerWidget {
       alignment: Alignment.center,
       color: Colors.blue,
       child: DropdownButton<int>(
-        value: ref.watch(homeStateProvider).pageAnime,
+        value: ref.read(homeStateProvider).selectedIndex == 0
+            ? ref.watch(homeStateProvider).pageAnime
+            : ref.watch(homeStateProvider).pageManga,
         onChanged: (int? newValue) {
-          ref.read(homeStateProvider.notifier).setPageAnime(newValue!);
-          ref.refresh(topAnimeProvider);
+          var selectedIndex = ref.read(homeStateProvider).selectedIndex;
+          switch (selectedIndex) {
+            case 0:
+              ref.read(homeStateProvider.notifier).setPageAnime(newValue!);
+              ref.refresh(topAnimeProvider);
+              break;
+            case 1:
+              ref.read(homeStateProvider.notifier).setPageManga(newValue!);
+              ref.refresh(topMangaProvider);
+              break;
+          }
         },
         style: const TextStyle(color: Colors.blue),
         selectedItemBuilder: (BuildContext context) {
           return options.map((int value) {
             return Text(
-              ref.watch(homeStateProvider).pageAnime.toString(),
+              ref.read(homeStateProvider).selectedIndex == 0
+                  ? ref.watch(homeStateProvider).pageAnime.toString()
+                  : ref.watch(homeStateProvider).pageManga.toString(),
               style: const TextStyle(color: Colors.white),
             );
           }).toList();

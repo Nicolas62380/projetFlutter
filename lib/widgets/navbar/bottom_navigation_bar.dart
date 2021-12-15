@@ -1,15 +1,14 @@
 // ignore_for_file: use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:projetflutter/providers/home_state.dart';
 
-class CustomBottomNavigation extends StatelessWidget {
-  const CustomBottomNavigation({this.selectedIndex = 0, required this.onTap});
-
-  final int selectedIndex;
-  final void Function(int) onTap;
+class CustomBottomNavigation extends ConsumerWidget {
+  CustomBottomNavigation({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return BottomNavigationBar(
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
@@ -21,9 +20,11 @@ class CustomBottomNavigation extends StatelessWidget {
           label: 'Manga',
         ),
       ],
-      currentIndex: selectedIndex,
+      currentIndex: ref.watch(homeStateProvider).selectedIndex,
       selectedItemColor: Colors.amber[800],
-      onTap: onTap,
+      onTap: (index) {
+        ref.read(homeStateProvider.notifier).setSelectedIndex(index);
+      },
     );
   }
 }

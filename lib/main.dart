@@ -18,10 +18,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: ' Demo',
-        theme : ThemeData(fontFamily: "AnimeAce"),
-        home: const ProviderScope(child: Home()),
+        theme: ThemeData(fontFamily: "AnimeAce"),
+        home: ProviderScope(child: Home()),
         routes: {
-          '/home': (context) => const Home(),
+          '/home': (context) => Home(),
           '/detail_manga': (context) => const ListeManga(),
           '/liste_anime': (context) => const ListeAnime(),
           DetailManga.routeName: (context) => const DetailManga(),
