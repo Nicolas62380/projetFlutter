@@ -12,9 +12,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  
-
-int _selectedIndex = 0;
+  int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
     ListeAnime(),
     ListeManga(),
@@ -25,11 +23,17 @@ int _selectedIndex = 0;
       _selectedIndex = index;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:  Text(_selectedIndex == 0 ? "Anime" : "Manga"),
+        leading:Image.asset(
+            'assets/icon/icon.png',
+            fit: BoxFit.contain,
+            height: 32,
+          ),
+        title: Text(_selectedIndex == 0 ? "Anime" : "Manga"),
         centerTitle: true,
       ),
       body: Center(
@@ -39,7 +43,6 @@ int _selectedIndex = 0;
         selectedIndex: _selectedIndex,
         onTap: _onItemTapped,
       ),
-      
     );
   }
 }
