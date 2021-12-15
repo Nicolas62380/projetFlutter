@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:projetflutter/models/liste_top_api.dart';
 import 'package:projetflutter/providers/top_anime_provider.dart';
 import 'package:projetflutter/widgets/anime.dart';
+import 'package:projetflutter/widgets/liste/liste_deroulante.dart';
 
 class ListeAnime extends ConsumerWidget {
   const ListeAnime({Key? key}) : super(key: key);
@@ -16,7 +17,7 @@ class ListeAnime extends ConsumerWidget {
 
   Widget _onData(data) {
     ListeTopApi a = data.value;
-    return _Liste(item:a);
+    return _Liste(item: a);
   }
 
   Widget _onError(error) {
@@ -36,7 +37,7 @@ class ListeAnime extends ConsumerWidget {
 }
 
 class _Liste extends StatefulWidget {
-  const _Liste({ Key? key, required this.item }) : super(key: key);
+  const _Liste({Key? key, required this.item}) : super(key: key);
 
   final ListeTopApi item;
 
@@ -45,10 +46,9 @@ class _Liste extends StatefulWidget {
 }
 
 class __ListeState extends State<_Liste> {
-
   ScrollController? _scrollController;
-bool _showBackToTopButton = false;
- @override
+  bool _showBackToTopButton = false;
+  @override
   void initState() {
     super.initState();
     _scrollController = ScrollController()
@@ -71,33 +71,32 @@ bool _showBackToTopButton = false;
 
   // This function is triggered when the user presses the back-to-top button
   void _scrollToTop() {
-    _scrollController!.animateTo(0,
-        duration: Duration(seconds: 1), curve: Curves.linear);
+    _scrollController!
+        .animateTo(0, duration: Duration(seconds: 1), curve: Curves.linear);
   }
 
   @override
   Widget build(BuildContext context) {
     return Stack(
-      children: 
-        [ListView.builder(
+      children: [
+        ListView.builder(
           controller: _scrollController,
-          itemCount:widget. item.top.length,
+          itemCount: widget.item.top.length,
           itemBuilder: (context, position) {
             return AnimeRow(
               anime: widget.item.top[position],
             );
           },
         ),
-
         _showBackToTopButton == false
-          ? SizedBox()
-          : Align(
-            alignment: Alignment.bottomRight,
-            child: FloatingActionButton(
-                onPressed: _scrollToTop,
-                child: Icon(Icons.arrow_upward),
-              ),
-          )
+            ? SizedBox()
+            : Align(
+                alignment: Alignment.bottomRight,
+                child: FloatingActionButton(
+                  onPressed: _scrollToTop,
+                  child: Icon(Icons.arrow_upward),
+                ),
+              )
       ],
     );
   }
