@@ -34,10 +34,11 @@ class DetailAnime extends StatelessWidget {
             ),
           ),
           //Image.network(args.anime.imageUrl!),
-          Text("Titre de l'anime : " + args.anime.title.toString()),
-          Text("Type de l'anime : " + args.anime.type.toString()),
-          Text("Rang de l'anime : " + args.anime.rank.toString()),
-          Text("Score de l'anime : " + args.anime.score.toString()),
+          Text("Titre : " + args.anime.title.toString()),
+          Text("Nombres d'épisodes : " + args.anime.episodes.toString()),
+          Text("Type : " + args.anime.type.toString()),
+          Text("Rang : " + args.anime.rank.toString()),
+          Text("Score : " + args.anime.score.toString()),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
