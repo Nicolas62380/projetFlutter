@@ -32,6 +32,14 @@ class Manga extends StatelessWidget {
                       const SizedBox(
                         height: 10,
                       ),
+                      Text(
+                        ("Rang : " + manga.rank.toString()),
+                        maxLines: 2,
+                        softWrap: true,
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
                       Text("Score : " + manga.score.toString()),
                     ]),
               )
