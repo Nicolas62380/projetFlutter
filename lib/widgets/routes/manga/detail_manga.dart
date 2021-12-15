@@ -10,6 +10,7 @@ class DetailManga extends StatelessWidget {
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)!.settings.arguments as DetailMangaArgs;
     String? imgUrl = args.manga.imageUrl;
+    int? rangManga = args.manga.rank;
     return Scaffold(
       appBar: AppBar(
         title: Text(args.manga.title.toString()),
@@ -22,11 +23,11 @@ class DetailManga extends StatelessWidget {
           GestureDetector(
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return DetailScreen(image:imgUrl);
+                return DetailScreen(image:imgUrl,rang:rangManga);
               }));
             },
             child: Hero(
-              tag: 'imageHero',
+              tag: 'imageHero'+rangManga!.toString(),
                 child: Image.network(
                   args.manga.imageUrl!,
                 ),
@@ -54,8 +55,9 @@ class DetailManga extends StatelessWidget {
 }
 
 class DetailScreen extends StatelessWidget {
-  const DetailScreen({Key? key,required this.image}) : super(key: key);
+  const DetailScreen({Key? key,required this.image, required this.rang}) : super(key: key);
   final String? image;
+  final int? rang;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,7 +67,7 @@ class DetailScreen extends StatelessWidget {
         },
         child: Center(
           child: Hero(
-            tag: 'imageHero',
+            tag: 'imageHero'+rang!.toString(),
             child: Image.network(
               image!,scale:0.5
             ),
