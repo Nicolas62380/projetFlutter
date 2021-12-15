@@ -89,10 +89,10 @@ flutter:
 fonts:
   - family: OtakuRant
     fonts:
-      - asset: fonts/OtakuRant.ttf
-      - asset: fonts/OtakuRantBold.ttf
+      - asset: assets/fonts/OtakuRant.ttf
+      - asset: assets/fonts/OtakuRantBold.ttf
         style: bold
-      - asset: fonts/OtakuRantItalBold.ttf
+      - asset: assets/fonts/OtakuRantItalBold.ttf
         style: italic bold
   #   - family: Trajan Pro
   #     fonts:
