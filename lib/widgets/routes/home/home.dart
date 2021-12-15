@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projetflutter/widgets/liste/liste_deroulante.dart';
 import 'package:projetflutter/widgets/navbar/bottom_navigation_bar.dart';
 
 import 'package:projetflutter/widgets/routes/anime/liste_anime.dart';
@@ -35,6 +36,7 @@ class _HomeState extends State<Home> {
           ),
         title: Text(_selectedIndex == 0 ? "Anime" : "Manga"),
         centerTitle: true,
+        ListeDeroulante(), 
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
