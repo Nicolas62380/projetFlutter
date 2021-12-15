@@ -1,53 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:projetflutter/providers/home_state.dart';
+import 'package:projetflutter/providers/top_anime_provider.dart';
 
-class ListeDeroulante extends StatefulWidget {
-  const ListeDeroulante({Key? key}) : super(key: key);
+class ListeDeroulante extends ConsumerWidget {
+  ListeDeroulante({Key? key}) : super(key: key);
 
-  @override
-  State<ListeDeroulante> createState() => _ListeDeroulanteState();
-}
-
-class _ListeDeroulanteState extends State<ListeDeroulante> {
-  List<String> options = <String>[
-    '1',
-    '2',
-    '3',
-    '4',
-    '5',
-    '6',
-    '7',
-    '8',
-    '9',
-    '10',
-    '11'
-  ];
-  String dropdownValue = '1';
+  final List<int> options = <int>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Container(
       alignment: Alignment.center,
       color: Colors.blue,
-      child: DropdownButton<String>(
-        value: dropdownValue,
-        onChanged: (String? newValue) {
-          setState(() {
-            dropdownValue = newValue!;
-          });
+      child: DropdownButton<int>(
+        value: ref.watch(homeStateProvider).pageAnime,
+        onChanged: (int? newValue) {
+          ref.read(homeStateProvider.notifier).setPageAnime(newValue!);
+          ref.refresh(topAnimeProvider);
         },
         style: const TextStyle(color: Colors.blue),
         selectedItemBuilder: (BuildContext context) {
-          return options.map((String value) {
+          return options.map((int value) {
             return Text(
-              dropdownValue,
+              ref.watch(homeStateProvider).pageAnime.toString(),
               style: const TextStyle(color: Colors.white),
             );
           }).toList();
         },
-        items: options.map<DropdownMenuItem<String>>((String value) {
-          return DropdownMenuItem<String>(
+        items: options.map<DropdownMenuItem<int>>((int value) {
+          return DropdownMenuItem<int>(
             value: value,
-            child: Text(value),
+            child: Text(value.toString()),
           );
         }).toList(),
       ),
