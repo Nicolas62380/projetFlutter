@@ -89,14 +89,17 @@ class __ListeState extends State<_Liste> {
           },
         ),
         _showBackToTopButton == false
-            ? SizedBox()
-            : Align(
-                alignment: Alignment.bottomRight,
-                child: FloatingActionButton(
+          ? SizedBox()
+          : Align(
+            alignment: Alignment.bottomRight,
+            child: Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: FloatingActionButton(
                   onPressed: _scrollToTop,
                   child: Icon(Icons.arrow_upward),
                 ),
-              )
+            ),
+          )
       ],
     );
   }

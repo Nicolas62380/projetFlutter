@@ -101,10 +101,13 @@ bool _showBackToTopButton = false;
           ? SizedBox()
           : Align(
             alignment: Alignment.bottomRight,
-            child: FloatingActionButton(
-                onPressed: _scrollToTop,
-                child: Icon(Icons.arrow_upward),
-              ),
+            child: Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: FloatingActionButton(
+                  onPressed: _scrollToTop,
+                  child: Icon(Icons.arrow_upward),
+                ),
+            ),
           )
       ],
     );
