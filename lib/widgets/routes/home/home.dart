@@ -34,7 +34,7 @@ class _HomeState extends State<Home> {
         ),
         title: Text(_selectedIndex == 0 ? "Anime" : "Manga"),
         centerTitle: true,
-        //ListeDeroulante(), 
+        actions: [ListeDeroulante()], 
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
