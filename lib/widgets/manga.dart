@@ -24,13 +24,17 @@ class Manga extends StatelessWidget {
               ),
               Image.network(manga.imageUrl!),
               const SizedBox(width: 32),
-              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                Text("Nom :  " + manga.title.toString()),
-                const SizedBox(
-                  height: 10,
-                ),
-                Text("Score : " + manga.score.toString()),
-              ])
+              Expanded(
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("Nom :  " + manga.title.toString()),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Text("Score : " + manga.score.toString()),
+                    ]),
+              )
             ],
           )),
       onTap: () {
