@@ -15,7 +15,6 @@ class Home extends ConsumerWidget {
     ListeManga(),
   ];
 
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
@@ -27,7 +26,12 @@ class Home extends ConsumerWidget {
             ? "Anime"
             : "Manga"),
         centerTitle: true,
-        actions: [ListeDeroulante()],
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: ListeDeroulante(),
+          )
+        ],
       ),
       body: Center(
         child: _widgetOptions
