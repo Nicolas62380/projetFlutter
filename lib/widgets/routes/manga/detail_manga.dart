@@ -9,6 +9,7 @@ class DetailManga extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)!.settings.arguments as DetailMangaArgs;
+    String? imgUrl = args.manga.imageUrl;
     return Scaffold(
       appBar: AppBar(
         title: Text(args.manga.title.toString()),
@@ -18,7 +19,20 @@ class DetailManga extends StatelessWidget {
           child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Image.network(args.manga.imageUrl!),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return DetailScreen(image:imgUrl);
+              }));
+            },
+            child: Hero(
+              tag: 'imageHero',
+                child: Image.network(
+                  args.manga.imageUrl!,
+                ),
+            ),
+          ),
+          //Image.network(args.manga.imageUrl!),
           Text("Titre du manga : " + args.manga.title.toString()),
           Text("Type de manga : " + args.manga.type.toString()),
           Text("Rang du manga : " + args.manga.rank.toString()),
@@ -35,6 +49,29 @@ class DetailManga extends StatelessWidget {
           ),
         ],
       )),
+    );
+  }
+}
+
+class DetailScreen extends StatelessWidget {
+  const DetailScreen({Key? key,required this.image}) : super(key: key);
+  final String? image;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: GestureDetector(
+        onTap: () {
+          Navigator.pop(context);
+        },
+        child: Center(
+          child: Hero(
+            tag: 'imageHero',
+            child: Image.network(
+              image!,scale:0.5
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
