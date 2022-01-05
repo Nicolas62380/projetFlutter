@@ -23,14 +23,14 @@ class DetailManga extends StatelessWidget {
           GestureDetector(
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return DetailScreen(image:imgUrl,rang:rangManga);
+                return DetailScreen(image: imgUrl, rang: rangManga);
               }));
             },
             child: Hero(
-              tag: 'imageHero'+rangManga!.toString(),
-                child: Image.network(
-                  args.manga.imageUrl!,
-                ),
+              tag: 'imageHero' + rangManga!.toString(),
+              child: Image.network(
+                args.manga.imageUrl!,
+              ),
             ),
           ),
           //Image.network(args.manga.imageUrl!),
@@ -56,7 +56,8 @@ class DetailManga extends StatelessWidget {
 }
 
 class DetailScreen extends StatelessWidget {
-  const DetailScreen({Key? key,required this.image, required this.rang}) : super(key: key);
+  const DetailScreen({Key? key, required this.image, required this.rang})
+      : super(key: key);
   final String? image;
   final int? rang;
   @override
@@ -68,10 +69,8 @@ class DetailScreen extends StatelessWidget {
         },
         child: Center(
           child: Hero(
-            tag: 'imageHero'+rang!.toString(),
-            child: Image.network(
-              image!,scale:0.5
-            ),
+            tag: 'imageHero' + rang!.toString(),
+            child: Image.network(image!, scale: 0.5),
           ),
         ),
       ),

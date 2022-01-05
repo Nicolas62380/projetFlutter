@@ -8,7 +8,7 @@ import 'package:projetflutter/widgets/routes/anime/liste_anime.dart';
 import 'package:projetflutter/widgets/routes/manga/liste_manga.dart';
 
 class Home extends ConsumerWidget {
-  Home({Key? key}) : super(key: key);
+  const Home({Key? key}) : super(key: key);
 
   static const List<Widget> _widgetOptions = <Widget>[
     ListeAnime(),
@@ -37,7 +37,7 @@ class Home extends ConsumerWidget {
         child: _widgetOptions
             .elementAt(ref.watch(homeStateProvider).selectedIndex),
       ),
-      bottomNavigationBar: CustomBottomNavigation(),
+      bottomNavigationBar: const NavBar(),
     );
   }
 }

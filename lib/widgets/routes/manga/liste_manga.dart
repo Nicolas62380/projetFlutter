@@ -12,8 +12,8 @@ class ListeManga extends ConsumerWidget {
     return ref
         .watch(topMangaProvider)
         .map(data: _onData, error: _onError, loading: _onLoading);
-   
-   /*final Dio dio = ref.read(dioProvider);
+
+    /*final Dio dio = ref.read(dioProvider);
 
     final Future<Response> future = dio.get('/top/anime/1/airing');
     future.then((response){
@@ -24,7 +24,7 @@ class ListeManga extends ConsumerWidget {
 
   Widget _onData(data) {
     ListeTopMangaApi a = data.value;
-    return _Liste(item:a);
+    return _Liste(item: a);
   }
 
   Widget _onError(error) {
@@ -44,7 +44,7 @@ class ListeManga extends ConsumerWidget {
 }
 
 class _Liste extends StatefulWidget {
-  const _Liste({ Key? key, required this.item }) : super(key: key);
+  const _Liste({Key? key, required this.item}) : super(key: key);
 
   final ListeTopMangaApi item;
 
@@ -53,10 +53,9 @@ class _Liste extends StatefulWidget {
 }
 
 class __ListeState extends State<_Liste> {
-
   ScrollController? _scrollController;
-bool _showBackToTopButton = false;
- @override
+  bool _showBackToTopButton = false;
+  @override
   void initState() {
     super.initState();
     _scrollController = ScrollController()
@@ -80,35 +79,34 @@ bool _showBackToTopButton = false;
   // This function is triggered when the user presses the back-to-top button
   void _scrollToTop() {
     _scrollController!.animateTo(0,
-        duration: Duration(seconds: 1), curve: Curves.linear);
+        duration: const Duration(seconds: 1), curve: Curves.linear);
   }
 
   @override
   Widget build(BuildContext context) {
     return Stack(
-      children: 
-        [ListView.builder(
+      children: [
+        ListView.builder(
           controller: _scrollController,
-          itemCount:widget. item.top.length,
+          itemCount: widget.item.top.length,
           itemBuilder: (context, position) {
             return Manga(
               manga: widget.item.top[position],
             );
           },
         ),
-
         _showBackToTopButton == false
-          ? SizedBox()
-          : Align(
-            alignment: Alignment.bottomRight,
-            child: Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: FloatingActionButton(
-                  onPressed: _scrollToTop,
-                  child: Icon(Icons.arrow_upward),
+            ? const SizedBox()
+            : Align(
+                alignment: Alignment.bottomRight,
+                child: Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: FloatingActionButton(
+                    onPressed: _scrollToTop,
+                    child: const Icon(Icons.arrow_upward),
+                  ),
                 ),
-            ),
-          )
+              )
       ],
     );
   }

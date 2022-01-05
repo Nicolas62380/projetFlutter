@@ -20,10 +20,12 @@ class AnimeRow extends StatelessWidget {
       child: Container(
           margin: const EdgeInsets.only(left: 20, top: 30, right: 20),
           decoration: BoxDecoration(
-              border: Border.all(color: Colors.blueAccent, width: 5),
+              border: Border.all(color: Color.fromARGB(255, 0, 0, 0), width: 5),
               borderRadius: const BorderRadius.all(Radius.circular(
                 10,
-              ))),
+              )),
+              color : Color(0xff2C2F33),
+              ),
           child: Row(
             children: [
               ClipRRect(
