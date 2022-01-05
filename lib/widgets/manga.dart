@@ -13,16 +13,20 @@ class Manga extends StatelessWidget {
       child: Container(
           margin: const EdgeInsets.only(left: 20, top: 30),
           decoration: BoxDecoration(
-              border: Border.all(color: Colors.blueAccent, width: 5),
+              border: Border.all(color: const Color.fromARGB(255, 0, 0, 0), width: 5),
               borderRadius: const BorderRadius.all(Radius.circular(
                 10,
               ))),
           child: Row(
             children: [
+              ClipRRect(
+              borderRadius: BorderRadius.circular(7),
+              child: Image.network(manga.imageUrl!),
+              ),
               const SizedBox(
                 width: 3,
               ),
-              Image.network(manga.imageUrl!),
+              //Image.network(manga.imageUrl!),
               const SizedBox(width: 32),
               Expanded(
                 child: Column(

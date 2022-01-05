@@ -23,6 +23,7 @@ class NavBar extends ConsumerWidget {
       ],
       currentIndex: ref.watch(homeStateProvider).selectedIndex,
       selectedItemColor: Colors.amber[800],
+      unselectedItemColor: const Color(0xff484B54),
       onTap: (index) {
         ref.read(homeStateProvider.notifier).setSelectedIndex(index);
       },
