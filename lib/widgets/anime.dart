@@ -26,10 +26,10 @@ class AnimeRow extends StatelessWidget {
               ))),
           child: Row(
             children: [
-              const SizedBox(
-                width: 3,
+              ClipRRect(
+              borderRadius: BorderRadius.circular(7),
+              child: Image.network(anime.imageUrl!),
               ),
-              Image.network(anime.imageUrl!),
               const SizedBox(width: 32),
               Expanded(
                 child: Column(
@@ -39,6 +39,8 @@ class AnimeRow extends StatelessWidget {
                         anime.title.toString(),
                         maxLines: 2,
                         softWrap: true,
+                        style: const TextStyle(fontWeight: FontWeight.bold,
+                        color: Colors.white)
                       ),
                       const SizedBox(
                         height: 10,
@@ -47,11 +49,14 @@ class AnimeRow extends StatelessWidget {
                         ("Rang : " + anime.rank.toString()),
                         maxLines: 2,
                         softWrap: true,
+                        style: const TextStyle(color: Colors.white)
                       ),
                       const SizedBox(
                         height: 10,
                       ),
-                      Text("Score : " + anime.score.toString()),
+                      Text("Score : " + anime.score.toString(),
+                      style: const TextStyle(color: Colors.white)
+                      ),
                     ]),
               )
             ],
