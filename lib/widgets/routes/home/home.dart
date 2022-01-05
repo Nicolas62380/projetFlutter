@@ -25,7 +25,7 @@ class Home extends ConsumerWidget {
         ),
         title: Text(ref.watch(homeStateProvider).selectedIndex == 0
             ? "Anime"
-            : "Manga"),
+            : "Manga",style: const TextStyle(color: Color(0xffff8f00)),),
         centerTitle: true,
         actions: [
           Padding(
