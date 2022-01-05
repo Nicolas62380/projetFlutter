@@ -52,7 +52,8 @@ class Manga extends StatelessWidget {
                       const SizedBox(
                         height: 10,
                       ),
-                      Text("Score : " + manga.score.toString()),
+                      Text("Score : " + manga.score.toString(),
+                      style: const TextStyle(color: Colors.white)),
                       Consumer(
                         builder: (context, ref, child) {
                           var name = ref.watch(mangaFavProvider);
@@ -75,8 +76,6 @@ class Manga extends StatelessWidget {
                           );
                         },
                       ),
-                      Text("Score : " + manga.score.toString(),
-                      style: const TextStyle(color: Colors.white)),
                     ]),
               )
             ],

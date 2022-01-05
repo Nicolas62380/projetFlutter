@@ -60,7 +60,9 @@ class AnimeRow extends StatelessWidget {
                       const SizedBox(
                         height: 10,
                       ),
-                      Text("Score : " + anime.score.toString()),
+                      Text("Score : " + anime.score.toString(),
+                      style: const TextStyle(color: Colors.white)
+                      ),
                       Consumer(
                         builder: (context, ref, child) {
                           var name = ref.watch(animeFavProvider);
@@ -82,9 +84,6 @@ class AnimeRow extends StatelessWidget {
                                 : Icons.favorite_border_outlined),
                           );
                         },
-                      ),
-                      Text("Score : " + anime.score.toString(),
-                      style: const TextStyle(color: Colors.white)
                       ),
                     ]),
               )
