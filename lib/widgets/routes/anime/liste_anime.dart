@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:projetflutter/models/liste_top_api.dart';
 import 'package:projetflutter/providers/top_anime_provider.dart';
 import 'package:projetflutter/widgets/anime.dart';
-import 'package:projetflutter/widgets/liste/liste_deroulante.dart';
 
 class ListeAnime extends ConsumerWidget {
   const ListeAnime({Key? key}) : super(key: key);
@@ -71,8 +70,8 @@ class __ListeState extends State<_Liste> {
 
   // This function is triggered when the user presses the back-to-top button
   void _scrollToTop() {
-    _scrollController!
-        .animateTo(0, duration: Duration(seconds: 1), curve: Curves.linear);
+    _scrollController!.animateTo(0,
+        duration: const Duration(seconds: 1), curve: Curves.linear);
   }
 
   @override
@@ -89,17 +88,18 @@ class __ListeState extends State<_Liste> {
           },
         ),
         _showBackToTopButton == false
-          ? SizedBox()
-          : Align(
-            alignment: Alignment.bottomRight,
-            child: Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: FloatingActionButton(
-                  onPressed: _scrollToTop,
-                  child: Icon(Icons.arrow_upward),
+            ? const SizedBox()
+            : Align(
+                alignment: Alignment.bottomRight,
+                child: Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: FloatingActionButton(
+                    backgroundColor: const Color(0xffff8f00),
+                    onPressed: _scrollToTop,
+                    child: const Icon(Icons.arrow_upward),
+                  ),
                 ),
-            ),
-          )
+              )
       ],
     );
   }

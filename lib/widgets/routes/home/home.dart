@@ -37,7 +37,7 @@ class Home extends ConsumerWidget {
         child: _widgetOptions
             .elementAt(ref.watch(homeStateProvider).selectedIndex),
       ),
-      bottomNavigationBar: CustomBottomNavigation(),
+      bottomNavigationBar: const NavBar(),
     );
   }
 }
