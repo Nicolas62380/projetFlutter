@@ -11,12 +11,13 @@ class Manga extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       child: Container(
-          margin: const EdgeInsets.only(left: 20, top: 30),
+          margin: const EdgeInsets.only(left: 20, top: 30, right: 20),
           decoration: BoxDecoration(
-              border: Border.all(color: const Color.fromARGB(255, 0, 0, 0), width: 5),
+              border: Border.all(color: const Color.fromARGB(255, 0, 0, 0), width: 1.5),
               borderRadius: const BorderRadius.all(Radius.circular(
                 10,
-              ))),
+              )),
+              color : const Color(0xff424549),),
           child: Row(
             children: [
               ClipRRect(
@@ -32,7 +33,9 @@ class Manga extends StatelessWidget {
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("Nom :  " + manga.title.toString()),
+                      Text(manga.title.toString(),
+                      style: const TextStyle(fontWeight: FontWeight.bold,
+                        color: Colors.white)),
                       const SizedBox(
                         height: 10,
                       ),
@@ -40,11 +43,13 @@ class Manga extends StatelessWidget {
                         ("Rang : " + manga.rank.toString()),
                         maxLines: 2,
                         softWrap: true,
+                        style: const TextStyle(color: Colors.white)
                       ),
                       const SizedBox(
                         height: 10,
                       ),
-                      Text("Score : " + manga.score.toString()),
+                      Text("Score : " + manga.score.toString(),
+                      style: const TextStyle(color: Colors.white)),
                     ]),
               )
             ],
