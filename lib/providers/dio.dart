@@ -10,4 +10,3 @@ final Dio dio = Dio(BaseOptions(
 final dioProvider = Provider<Dio>((ref) {
   return dio;
 });
-
