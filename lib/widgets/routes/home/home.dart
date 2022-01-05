@@ -8,7 +8,7 @@ import 'package:projetflutter/widgets/routes/anime/liste_anime.dart';
 import 'package:projetflutter/widgets/routes/manga/liste_manga.dart';
 
 class Home extends ConsumerWidget {
-  const Home({Key? key}) : super(key: key);
+  Home({Key? key}) : super(key: key);
 
   static const List<Widget> _widgetOptions = <Widget>[
     ListeAnime(),
@@ -19,13 +19,12 @@ class Home extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor : const Color(0xFF212226),
         leading: Image.asset(
           'assets/icon/icon.png',
         ),
         title: Text(ref.watch(homeStateProvider).selectedIndex == 0
             ? "Anime"
-            : "Manga",style: const TextStyle(color: Color(0xffff8f00)),),
+            : "Manga"),
         centerTitle: true,
         actions: [
           Padding(

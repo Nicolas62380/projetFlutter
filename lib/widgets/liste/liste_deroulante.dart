@@ -13,7 +13,7 @@ class ListeDeroulante extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Container(
       alignment: Alignment.center,
-      color: Colors.blue,
+      color: const Color(0xff212226),
       child: DropdownButton<int>(
         value: ref.read(homeStateProvider).selectedIndex == 0
             ? ref.watch(homeStateProvider).pageAnime
@@ -31,14 +31,14 @@ class ListeDeroulante extends ConsumerWidget {
               break;
           }
         },
-        style: const TextStyle(color: Colors.blue),
+        style: const TextStyle(color: Color(0xff212226)),
         selectedItemBuilder: (BuildContext context) {
           return options.map((int value) {
             return Text(
               ref.read(homeStateProvider).selectedIndex == 0
                   ? ref.watch(homeStateProvider).pageAnime.toString()
                   : ref.watch(homeStateProvider).pageManga.toString(),
-              style: const TextStyle(color: Colors.white),
+              style: const TextStyle(color: Color.fromARGB(255, 255, 143, 0)),
             );
           }).toList();
         },
