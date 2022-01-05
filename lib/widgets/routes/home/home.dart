@@ -19,6 +19,7 @@ class Home extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xFF212226),
         leading: Image.asset(
           'assets/icon/icon.png',
         ),

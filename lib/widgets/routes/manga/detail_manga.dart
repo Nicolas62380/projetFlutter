@@ -13,8 +13,10 @@ class DetailManga extends StatelessWidget {
     int? rangManga = args.manga.rank;
     return Scaffold(
       appBar: AppBar(
-        title: Text(args.manga.title.toString()),
+        title: Text(args.manga.title.toString(),
+        style: const TextStyle(color: Color(0xFFff8f00))),
         centerTitle: true,
+        backgroundColor: const Color(0xff212226)
       ),
       body: Center(
           child: Column(
@@ -34,19 +36,27 @@ class DetailManga extends StatelessWidget {
             ),
           ),
           //Image.network(args.manga.imageUrl!),
-          Text("Titre : " + args.manga.title.toString()),
-          Text("Nombre de volumes : " + args.manga.volumes.toString()),
-          Text("Type : " + args.manga.type.toString()),
-          Text("Rang : " + args.manga.rank.toString()),
-          Text("Score : " + args.manga.score.toString()),
+          Text(args.manga.title.toString(),
+          style: const TextStyle(fontWeight: FontWeight.bold,
+          color: Colors.white)),
+          Text("Nombre de volumes : " + args.manga.volumes.toString(),
+          style: const TextStyle(color: Colors.white)),
+          Text("Type : " + args.manga.type.toString(),
+          style: const TextStyle(color: Colors.white)),
+          Text("Rang : " + args.manga.rank.toString(),
+          style: const TextStyle(color: Colors.white)),
+          Text("Score : " + args.manga.score.toString(),
+          style: const TextStyle(color: Colors.white)),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("Début : " + args.manga.startDate.toString()),
+              Text("Début : " + args.manga.startDate.toString(),
+              style: const TextStyle(color: Colors.white)),
               const SizedBox(
                 width: 20,
               ),
-              Text("Fin : " + args.manga.endDate.toString()),
+              Text("Fin : " + args.manga.endDate.toString(),
+              style: const TextStyle(color: Colors.white)),
             ],
           ),
         ],
