@@ -13,8 +13,9 @@ class DetailAnime extends StatelessWidget {
     int? rangAnime = args.anime.rank;
     return Scaffold(
       appBar: AppBar(
-        title: Text(args.anime.title.toString()),
+        title: Text(args.anime.title.toString(),style: const TextStyle(color:Color(0xffff8f00))),
         centerTitle: true,
+        backgroundColor: const Color(0xff212226),
       ),
       body: Center(
           child: Column(
