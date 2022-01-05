@@ -24,7 +24,7 @@ class AnimeRow extends StatelessWidget {
               borderRadius: const BorderRadius.all(Radius.circular(
                 10,
               )),
-              color : Color(0xff2C2F33),
+              color : Color(0xff424549),
               ),
           child: Row(
             children: [
